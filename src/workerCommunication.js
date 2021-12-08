@@ -56,7 +56,8 @@ const THIS_SCRIPT = _scripts[_scripts.length - 1];
 
 // Inspired by Emscripten's method for doing the same thing
 function getPathPrefix() {
-    return THIS_SCRIPT.src.substring(0, THIS_SCRIPT.src.lastIndexOf('/')) + '/';
+    const scriptSrc = THIS_SCRIPT.src.substring(0, THIS_SCRIPT.src.lastIndexOf('/'));
+    return scriptSrc ? scriptSrc + '/' : undefined;
 }
 
 // Destroy the worker and clear the promise so that calling initWorker will make a new one.
